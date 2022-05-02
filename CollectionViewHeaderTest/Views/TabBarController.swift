@@ -25,5 +25,14 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         viewControllers = mainViewControllers
+
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .secondarySystemBackground
+
+            tabBar.standardAppearance = appearance
+            tabBar.scrollEdgeAppearance = appearance
+        }
     }
 }
